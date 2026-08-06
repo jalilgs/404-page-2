@@ -197,6 +197,7 @@ body {
   text-decoration: none;
   background: transparent;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  cursor: none;
 }
 
 .btn-arrow {
