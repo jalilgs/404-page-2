@@ -1,0 +1,285 @@
+:root {
+  --paper: #f1e6cd;
+  --paper-card: #e9dab6;
+  --paper-card-edge: #ddc99b;
+  --ink: #23303f;
+  --ink-soft: #4b5a6b;
+  --red: #b33a2e;
+  --gold: #c08a28;
+  --teal: #3f7268;
+
+  --font-display: 'IM Fell English SC', serif;
+  --font-label: 'Special Elite', 'Courier New', monospace;
+  --font-body: 'Courier Prime', 'Courier New', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  cursor: none;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 1.25rem;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(rgba(35, 48, 63, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(35, 48, 63, 0.05) 0%, transparent 4%, transparent 96%, rgba(35, 48, 63, 0.05) 100%);
+  background-size: 22px 22px, 100% 100%;
+  color: var(--ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* ---------- corner stamp ---------- */
+
+.stamp {
+  position: fixed;
+  top: 1.75rem;
+  right: 1.75rem;
+  border: 2px dashed var(--red);
+  color: var(--red);
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  transform: rotate(6deg);
+  opacity: 0.75;
+  animation: settle-in 0.9s ease both;
+  animation-delay: 0.2s;
+}
+
+/* ---------- card ---------- */
+
+.card {
+  position: relative;
+  width: min(600px, 100%);
+  background-color: var(--paper-card);
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.75rem, 6vw, 3.5rem) clamp(3rem, 6vw, 4rem);
+  text-align: center;
+  transform: rotate(-0.6deg);
+  box-shadow:
+    0 1px 0 var(--paper-card-edge),
+    0 18px 40px -20px rgba(35, 48, 63, 0.45);
+  clip-path: polygon(
+    0% 2%, 4% 0%, 9% 3%, 14% 0%, 19% 2%, 24% 0%, 29% 3%, 34% 0%, 39% 2%, 44% 0%,
+    49% 3%, 54% 0%, 59% 2%, 64% 0%, 69% 3%, 74% 0%, 79% 2%, 84% 0%, 89% 3%, 94% 0%, 100% 2%,
+    100% 98%, 96% 100%, 91% 97%, 86% 100%, 81% 98%, 76% 100%, 71% 97%, 66% 100%, 61% 98%, 56% 100%,
+    51% 97%, 46% 100%, 41% 98%, 36% 100%, 31% 97%, 26% 100%, 21% 98%, 16% 100%, 11% 97%, 6% 100%, 0% 98%
+  );
+  animation: settle-in 0.7s ease both;
+}
+
+/* ---------- numeral + compass ---------- */
+
+.numeral {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.03em;
+  font-family: var(--font-display);
+  font-size: clamp(5.5rem, 17vw, 9rem);
+  line-height: 1;
+  color: var(--ink);
+  text-shadow: 2px 2px 0 rgba(35, 48, 63, 0.08);
+}
+
+.compass {
+  width: 0.82em;
+  height: 0.82em;
+  overflow: visible;
+}
+
+.compass-face {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.5;
+}
+
+.compass-inner {
+  fill: none;
+  stroke: var(--ink-soft);
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+}
+
+.compass-ticks line {
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
+.compass-n {
+  font-family: var(--font-label);
+  font-size: 9px;
+  fill: var(--ink-soft);
+}
+
+.compass-needle {
+  transform-origin: 50px 50px;
+  transform: rotate(35deg);
+}
+
+.needle-north { fill: var(--red); }
+.needle-south { fill: var(--ink-soft); }
+
+.compass-pin {
+  fill: var(--gold);
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .compass-needle {
+    animation: find-north 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes find-north {
+  0%   { transform: rotate(0deg); }
+  55%  { transform: rotate(400deg); }
+  75%  { transform: rotate(310deg); }
+  100% { transform: rotate(35deg); }
+}
+
+/* ---------- text ---------- */
+
+.headline {
+  margin-top: 1.25rem;
+  font-family: var(--font-label);
+  font-size: clamp(1rem, 2.6vw, 1.25rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.body-copy {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 38ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.coordinates {
+  margin-top: 1.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--teal);
+}
+
+/* ---------- button ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2.25rem;
+  padding: 0.85rem 1.75rem;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--ink);
+  color: var(--paper-card);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(-4px);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}
+
+/* ---------- entrance ---------- */
+
+@keyframes settle-in {
+  from { opacity: 0; transform: translateY(16px) rotate(-0.6deg); }
+  to   { opacity: 1; transform: translateY(0) rotate(-0.6deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .stamp { animation: none; }
+}
+
+/* ---------- custom cursor ---------- */
+
+.cursor {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width .2s, height .2s, border-color .2s, opacity .25s;
+  z-index: 9999;
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  background: var(--red);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity .25s;
+  z-index: 10000;
+}
+
+.cursor.hidden,
+.cursor-dot.hidden {
+  opacity: 0;
+}
+
+/* hide the fixed-position custom cursor entirely on touch devices */
+@media (hover: none), (pointer: coarse) {
+  html { cursor: auto; }
+  .cursor, .cursor-dot { display: none; }
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 520px) {
+  .stamp {
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.55rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .card {
+    transform: rotate(0deg);
+  }
+}

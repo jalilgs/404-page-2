@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Off the Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IM+Fell+English+SC&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="stamp" aria-hidden="true">FIELD LOG<br>ENTRY 404</div>
+
+    <main class="card">
+
+        <h1 class="numeral" aria-label="404">
+            <span>4</span>
+            <svg class="compass" viewBox="0 0 100 100" role="img" aria-hidden="true">
+                <circle class="compass-face" cx="50" cy="50" r="46"></circle>
+                <circle class="compass-inner" cx="50" cy="50" r="38"></circle>
+
+                <g class="compass-ticks">
+                    <line x1="50" y1="6" x2="50" y2="14"></line>
+                    <line x1="50" y1="86" x2="50" y2="94"></line>
+                    <line x1="6" y1="50" x2="14" y2="50"></line>
+                    <line x1="86" y1="50" x2="94" y2="50"></line>
+                </g>
+
+                <text class="compass-n" x="50" y="24" text-anchor="middle">N</text>
+
+                <g class="compass-needle">
+                    <polygon class="needle-north" points="50,14 44,50 56,50"></polygon>
+                    <polygon class="needle-south" points="50,86 44,50 56,50"></polygon>
+                </g>
+
+                <circle class="compass-pin" cx="50" cy="50" r="3.5"></circle>
+            </svg>
+            <span>4</span>
+        </h1>
+
+        <h2 class="headline">You've wandered off the map</h2>
+
+        <p class="body-copy">This route isn't on our chart. It may have moved, been renamed, or never existed at all.</p>
+
+        <p class="coordinates">STATUS: NOT FOUND &middot; COORDINATES UNKNOWN</p>
+
+        <a href="#" class="btn">
+            <span class="btn-arrow" aria-hidden="true">&larr;</span>
+            Back to homepage
+        </a>
+
+    </main>
+
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
